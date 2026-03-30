@@ -104,7 +104,6 @@
             showStatus('Creating help desk ticket...', 'info');
             
             try {
-                // Create new email with predefined TO and CC recipients
                 Office.context.mailbox.displayNewMessageForm({
                     toRecipients: [{
                         displayName: TO_RECIPIENT,
@@ -114,8 +113,37 @@
                         displayName: CC_RECIPIENT,
                         emailAddress: CC_RECIPIENT
                     }],
-                    subject: "", // No preset subject
-                    htmlBody: ``  // Empty body
+                    subject: "[IT Support] - Please describe your issue",
+                    htmlBody: `
+                        <p><b>Please provide the following details to help us diagnose your issue:</b></p>
+
+                        <p><b>Issue Summary:</b><br></p>
+
+                        <p><b>What were you trying to do?</b><br></p>
+
+                        <p><b>What happened instead?</b><br></p>
+
+                        <p><b>When did the issue start?</b><br></p>
+
+                        <p><b>Is the issue still happening?</b><br></p>
+
+                        <p><b>How often does it occur?</b><br></p>
+
+                        <p><b>Device (Laptop/Desktop/Mobile):</b><br></p>
+
+                        <p><b>Application/System affected:</b><br></p>
+
+                        <p><b>Location (Office/Remote/VPN):</b><br></p>
+
+                        <p><b>Steps already tried:</b><br></p>
+
+                        <p><b>Impact to your work:</b><br></p>
+
+                        <p><b>Screenshots:</b><br>
+                        (Please attach any relevant screenshots)</p>
+
+                        <p>Thank you,<br></p>
+                    `
                 });
                 
                 showStatus('Help desk ticket created successfully!', 'success');
@@ -132,7 +160,6 @@
             statusDiv.className = 'status ' + type;
             statusDiv.style.display = 'block';
             
-            // Hide status after 3 seconds for success messages
             if (type === 'success') {
                 setTimeout(() => {
                     statusDiv.style.display = 'none';
