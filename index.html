@@ -97,9 +97,7 @@
         });
 
         function createNewEmail() {
-            // Predefined values
-            const TO_RECIPIENT = "help@impsolutions.com";
-            const CC_RECIPIENT = "itsupport@eastpoint.ca";
+            const TO_RECIPIENT = "support@eastpoint.rmmservice.ca";
             
             showStatus('Creating help desk ticket...', 'info');
             
@@ -109,22 +107,8 @@
                         displayName: TO_RECIPIENT,
                         emailAddress: TO_RECIPIENT
                     }],
-                    ccRecipients: [{
-                        displayName: CC_RECIPIENT,
-                        emailAddress: CC_RECIPIENT
-                    }],
-                    subject: "",
-                    htmlBody: `
-                        <p><b>Please fill in the details below so we can assist you:</b></p>
-                        <p><b>What's the issue?</b><br></p>
-                        <p><b>When did it start, and is it still happening?</b><br></p>
-                        <p><b>Device & OS:</b><br></p>
-                        <p><b>Application/system affected:</b><br></p>
-                        <p><b>Location (office / remote / VPN):</b><br></p>
-                        <p><b>Impact (blocked / slowed down / minor):</b><br></p>
-                        <p><b>Steps already tried:</b><br></p>
-                        <p><b>Screenshots:</b> (please attach if applicable)</p>
-                    `
+                    subject: "Outlook Button Submission",
+                    htmlBody: `<p>Please fill in the details below so we can assist you:</p>`
                 });
                 
                 showStatus('Help desk ticket created successfully!', 'success');
